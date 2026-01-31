@@ -1,0 +1,231 @@
+:root {
+    --bg-color: #0f172a;
+    --sidebar-bg: #1e293b;
+    --text-color: #e2e8f0;
+    --accent-color: #8b5cf6;
+    --accent-hover: #7c3aed;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --border-color: rgba(148, 163, 184, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    font-weight: 600;
+    background: linear-gradient(to right, #c084fc, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+.status-panel h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+.doc-item {
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.doc-item.empty {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent 40%);
+}
+
+/* Upload Zone */
+.upload-zone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-area {
+    border: 2px dashed var(--accent-color);
+    background: rgba(139, 92, 246, 0.05);
+    padding: 4rem;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-area:hover, .drop-area.highlight {
+    background: rgba(139, 92, 246, 0.1);
+    transform: scale(1.02);
+}
+
+.drop-area .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Chat Interface */
+.chat-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.chat-interface.hidden, .loader.hidden {
+    display: none;
+}
+
+.chat-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.02);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    max-width: 80%;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.message.user .bubble {
+    background-color: var(--accent-color);
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+.message.bot .bubble {
+    background-color: rgba(255,255,255,0.1);
+    border-bottom-left-radius: 2px;
+}
+
+.chat-input-area {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+}
+
+#user-input {
+    flex: 1;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+#user-input:focus {
+    border-color: var(--accent-color);
+}
+
+#send-btn {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 0 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.2s;
+}
+
+#send-btn:hover {
+    background: var(--accent-hover);
+}
+
+/* Loader */
+.spinner {
+    border: 4px solid rgba(255,255,255,0.1);
+    border-left-color: var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader p {
+    color: var(--accent-color);
+    font-weight: 500;
+}

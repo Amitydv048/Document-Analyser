@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Analyser AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>DocAnalyser</h2>
+            </div>
+            <div class="status-panel">
+                <h3>Current Document</h3>
+                <div id="doc-status" class="doc-item empty">
+                    <span>No document uploaded</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Zone -->
+            <section id="upload-section" class="upload-zone">
+                <div class="drop-area" id="drop-area">
+                    <div class="icon">📄</div>
+                    <h3>Drag & Drop PDF here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileElem" accept="application/pdf" style="display:none">
+                </div>
+                <div id="upload-loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <p>Analysing Document...</p>
+                </div>
+            </section>
+
+            <!-- Chat Interface -->
+            <section id="chat-section" class="chat-interface hidden">
+                <div class="chat-header">
+                    <h3>AI Assistant</h3>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        <div class="bubble">Hello! I've read your document. Ask me anything about it.</div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Type your question...">
+                    <button id="send-btn">➤</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

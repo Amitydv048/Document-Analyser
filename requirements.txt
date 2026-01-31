@@ -1,0 +1,12 @@
+pytesseract
+PyPDF2
+pdf2image
+Pillow
+langchain
+langchain-openai
+langchain-community
+faiss-cpu
+tiktoken
+fastapi
+uvicorn
+python-multipart
